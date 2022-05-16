@@ -75,29 +75,6 @@ def bot_move(count, limit, choice):
 
     return count
 
-def who_win(count, limit, moves, draww, chose):
-    if count <= limit:
-        if moves % 2 == 0:
-            if chose == 2 or chose ==  3 or chose == 5:
-                if draww == 0:
-                    print(f'{appeals_end_lose[random.randint(0, len(appeals_end_lose) - 1)]}')
-                else:
-                    print(f'{appeals_end_won[random.randint(0, len(appeals_end_lose) - 1)]}')   
-            else:
-                if draww == 0:
-                    print(f'{appeals_end_won[random.randint(0, len(appeals_end_lose) - 1)]}')
-                else:
-                    print(f'{appeals_end_lose[random.randint(0, len(appeals_end_lose) - 1)]}')
-            if chose == 5:
-                if draww == 0:
-                    print(f'{first_user}{appeals_end_lose[random.randint(0, len(appeals_end_lose) - 1)]}')
-                else:
-                    print(f'{second_user}{appeals_end_won[random.randint(0, len(appeals_end_lose) - 1)]}')   
-            else:
-                if draww == 0:
-                    print(f'{second_user}{appeals_end_won[random.randint(0, len(appeals_end_lose) - 1)]}')
-                else:
-                    print(f'{first_user}{appeals_end_lose[random.randint(0, len(appeals_end_lose) - 1)]}')
 
 def slow_printing():
     txt = 'Жеребьевка...  '
