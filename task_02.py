@@ -7,6 +7,7 @@
 # b) Подумайте как наделить бота "интеллектом"
 import random
 import time
+import numbers
 
 limit_candies = 5  # лимит конфет
 number_of_candies = 25  # количество конфет
@@ -31,7 +32,7 @@ def user_move(count, limit, user):
  
 
     while a > limit:
-        a = int(input(f'Перебор, не более {limit}, попробуй еще: '))
+        a = int(input(f'Перебор, не более {limit}, осталось {count} попробуй еще: '))
     count -= a
     
 
@@ -88,11 +89,16 @@ print()
 while True:
     print('1 - Правила игры'
           '\n2 - Играть'
-          '\n3 - Выйти из игры')
+          '\n3 - Выйти из игры'
+          '\n')
 
-    my_choice = int(input('Введи номер операции: '))
-    while my_choice > 3:
-        my_choice = int(input('Перебор не более 3, введи заново: '))
+    temp_choice = input('Введи номер операции: ')
+    while temp_choice.isnumeric() == False:
+        temp_choice = input('Нужно ввести число от 1 до 3: ')
+    else:
+        my_choice = int(temp_choice)
+        while my_choice > 3:
+            my_choice = int(input('Перебор не более 3, введи заново: '))
     if my_choice == 3:
         break
     elif my_choice == 1:
@@ -103,16 +109,23 @@ while True:
               '\n')
     elif my_choice == 2:
         print('1 - Играть с ботом'
-            "\n2 - Играть с оппонентом")
-        my_choice2 = int(input('С кем хочешь играть? '))
-        while my_choice2 > 2:
-            my_choice2 = int(input('Перебор не более 2, введи заново: '))
+            "\n2 - Играть с оппонентом"
+            '\n')
+        
+        temp_choice = input('С кем хочешь играть? ')
+        while temp_choice.isnumeric() == False:
+            temp_choice = input('Нужно ввести число от 1 до 2: ')
+        else:
+            my_choice2 = int(temp_choice)
+            while my_choice2 > 2:
+                my_choice2 = int(input('Перебор не более 2, введи заново: '))
 
         if my_choice2 == 2:
             first_user = input('Введи имя первого игрока: ')
             second_user = input('Введи имя второго игрока: ')
             draw = random.randint(0, 1)
             slow_printing()
+            print()
             if draw == 0:
                 print(f'{first_user} ты ходишь первым!')
             else:
@@ -156,11 +169,16 @@ while True:
             print('1 - легкий'
                 '\n2 - средний'
                 '\n3 - тяжелый')
-            my_choice3 = int(input('Какой уровень сложности выбираешь? '))
-            while my_choice3 > 3:
-                my_choice3 = int(input('Перебор не более 3, введи заново '))
+            temp_choice = input('Какой уровень сложности выбираешь? ')
+            while temp_choice.isnumeric() == False:
+                temp_choice = input('Нужно ввести число от 1 до 2: ')
+            else:
+                my_choice3 = int(temp_choice)
+                while my_choice3 > 3:
+                    my_choice3 = int(input('Перебор не более 3, введи заново: '))
             draw = random.randint(0, 1)
             slow_printing()
+            print()
             if draw == 0:
                 print("Ты ходишь первым!")
             else: 
